@@ -1,0 +1,14 @@
+def chatverify(url2):
+  openai.api_key = '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'
+  completion = openai.ChatCompletion.create( model="gpt-3.5-turbo", messages=[ {"role": "user", "content": "Odpowiedz TAK lub NIE czy poniższy tekst dotyczy realnej zbrodni:"+ url2} ] )
+  time.sleep(3)
+  reply = completion.choices[0].message.content
+  if "NIE" in reply:
+     return False
+  completion = openai.ChatCompletion.create( model="gpt-3.5-turbo", messages=[ {"role": "user", "content": "Odpowiedz na ile lat został skazany sprawca:"+url2} ] )
+  wyrok = completion.choices[0].message.content
+  completion = openai.ChatCompletion.create( model="gpt-3.5-turbo", messages=[ {"role": "user", "content": "Jakie były okoliczności zbrodni:"+url2} ] )
+  operandi = completion.choices[0].message.content
+  #print(wyrok)
+  info = ( "Wyrok: "+wyrok+" \n  "+"Modus operandi: "+operandi)
+ return info

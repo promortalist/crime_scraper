@@ -1,0 +1,174 @@
+SELECT * FROM  Zbrodnie WHERE (Opis LIKE "Opis by ChatGPT")
+
+IF RETURN TRUE:
+
+PASS
+
+SELECT * FROM Zbrodnie WHERE ( ROW1 < $VARIABLE)
+
+SELECT * FROM Zbrodnie WHERE ( ROW2 LIKE  $VARIABLE)
+
+
+
+import sqlite3 
+db = 'pydb.db' 
+conn = sqlite3.connect(db) 
+print('connected') 
+print(conn)
+
+def create_table(conn): 
+cursor = conn.cursor() 
+sql = ''' create table if not exists zbrodnie (id integer primary key au name char(30) not null, wyrok integer, url text, opis, text, created datetime )''' 
+cursor.execute(sql) 
+conn.commit() 
+print('created a table')
+
+
+c = conn.cursor()			
+#get the count of tables with the name
+c.execute(''' SELECT count(name) FROM sqlite_master WHERE type='table' AND name='students' ''')
+
+#if the count is 1, then table exists
+if c.fetchone()[0]==1 : {
+	print('Table exists.')
+else:
+     create_table(conn)
+}
+			
+#commit the changes to db			
+conn.commit()
+#close the connection
+conn.close()
+
+
+def insertVaribleIntoTable(id, name, email, joinDate, salary):
+    try:
+        sqliteConnection = sqlite3.connect('SQLite_Python.db')
+        cursor = sqliteConnection.cursor()
+        print("Connected to SQLite")
+
+        sqlite_insert_with_param = """INSERT INTO SqliteDb_developers
+                          (id, name, email, joining_date, salary) 
+                          VALUES (?, ?, ?, ?, ?);"""
+
+        data_tuple = (id, name, email, joinDate, salary)
+        cursor.execute(sqlite_insert_with_param, data_tuple)
+        sqliteConnection.commit()
+        print("Python Variables inserted successfully into SqliteDb_developers table")
+
+        cursor.close()
+
+    except sqlite3.Error as error:
+        print("Failed to insert Python variable into sqlite table", error)
+    finally:
+        if sqliteConnection:
+            sqliteConnection.close()
+            print("The SQLite connection is closed")
+
+
+insertVaribleIntoTable(2, 'Joe', 'joe@pynative.com', '2019-05-19', 9000)
+
+
+
+
+conn.close()
+import re
+
+
+txt "Karol Wojtyła zwany bestią z Wadowic, został skazany na 25 lat więzienia. Wyrok nie jest prawomocny."
+regex1 = re.search(r'(\d|\d\d)\slata?', txt)
+regex2 = re.search(r'(dożywocie|dożywocia)', txt)
+if regex1:
+  matched = str(regex1[0])
+  print("matched: "+matched)
+  numregex1 = re.search(r'\b(\d|\d\d)\b', matched)
+  print(numregex1)
+  print(numregex1[0])
+  liczba_w = int(numregex1[0])
+  add liczba_w to table, column wyrok
+  sql = ''' INSERT INTO crimes(name,begin_date,end_date) VALUES(?,?,?) '''
+elif regex2:
+      add 100 to table, column wyrok
+
+
+    
+else:
+ add 0 to table, column wyrok
+ continue
+
+
+
+0 - brak informacji
+100 - dożywocie
+
+tabela zbrodnie3:
+
+ID integer    wyrok integer       url text  opis text
+
+
+def create_data(conn):
+
+cursor = conn.cursor() 
+insert_sql = ("INSERT INTO product " "(name, stock, price, created) " "VALUES(?, ?, ?, ?)") 
+params = ("product " + str(i), 3+i*4, 0.4+i*8, datetime.now())
+ cursor.execute(insert_sql, params) product_id = cursor.lastrowid print('inserted with id=', product_id) 
+conn.commit() 
+cursor.close()
+print('done')
+
+Sprawdzić czy url jest już w bazie, jeśli to continue from loop (pominiecie kolejki)
+
+SELECT url FROM crimes WHERE url = sznurek
+if return not found
+
+
+https://www.appsloveworld.com/bestanswer/sqlite/41/check-if-row-exists-in-sqlite-with-python
+
+exist = conn.execute("select url from crimes where url = sznurek", (name,)).fetchone()
+if exist is None:
+    print("Doesn't exist")
+else:
+    print("Yep exists")
+
+
+
+ostatnie uruchomienie plik lastrun.txt 
+lastrun = open("lastrun.txt", "r")
+lastrun.close()
+lastwrite = open("lastrun.txt, "w")
+lastwrite.write(date)
+
+data to dzien miesiac i rok [format google]
+aby pozniej uzywac go w zapytaniu after:lastrun
+
+import sqlite3
+
+def insertVaribleIntoTable(id, name, email, joinDate, salary):
+    try:
+        sqliteConnection = sqlite3.connect('SQLite_Python.db')
+        cursor = sqliteConnection.cursor()
+        print("Connected to SQLite")
+
+        sqlite_insert_with_param = """INSERT INTO SqliteDb_developers
+                          (id, name, email, joining_date, salary) 
+                          VALUES (?, ?, ?, ?, ?);"""
+
+        data_tuple = (id, name, email, joinDate, salary)
+        cursor.execute(sqlite_insert_with_param, data_tuple)
+        sqliteConnection.commit()
+        print("Python Variables inserted successfully into SqliteDb_developers table")
+
+        cursor.close()
+
+    except sqlite3.Error as error:
+        print("Failed to insert Python variable into sqlite table", error)
+    finally:
+        if sqliteConnection:
+            sqliteConnection.close()
+            print("The SQLite connection is closed")
+
+
+
+
+
+
