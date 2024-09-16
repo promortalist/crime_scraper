@@ -1,0 +1,32 @@
+def skrapnjus(url):
+ from newspaper import Article
+ article = Article(url)
+ article.download()
+ article.parse()
+# article.authors
+ tekst = article.text
+ article.nlp()
+# article.keywords
+ podsumowanie = article.summary
+ return tekst
+
+
+def skrapnjus2(url):
+ from newspaper import Article
+ article = Article(url)
+ article.download()
+ article.parse()
+# article.authors
+ tekst = article.text
+ article.nlp()
+# article.keywords
+ podsumowanie = article.summary
+ return podsumowanie
+
+
+query("Wkleję ci poniżej artykuł, chcę abyś odpowiedział na parę pytań dotyczących niego.")
+
+
+
+njus1 = skrapnjus('https://www.doba.pl/ddz/artykul/dzierzoniowski-trener-skazany-za-molestowanie-nieletniej/71786/15')
+
